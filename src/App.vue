@@ -15,6 +15,15 @@
     <RevenueChart></RevenueChart>
     <RevenueBreakdown></RevenueBreakdown>
   </div>
+
+  <section class="tables">
+    <div class="subtables">
+      <NetIncomeChart></NetIncomeChart>
+      <GrossMarginChart></GrossMarginChart>
+    </div>
+    <RevenueGrowthChart></RevenueGrowthChart>
+  </section>
+
 </template>
 
 <script>
@@ -22,6 +31,9 @@ import { stockService } from '@/services/stockService.js';
 import CompanyCard from '@/components/CompanyCard.vue';
 import RevenueChart from '@/components/RevenueChart.vue';
 import RevenueBreakdown from '@/components/RevenueBreakdown.vue';
+import NetIncomeChart from '@/components/NetIncomeChart.vue';
+import GrossMarginChart from '@/components/GrossMarginChart.vue';
+import RevenueGrowthChart from '@/components/RevenueGrowthChart.vue';
 
 
 export default {
@@ -30,7 +42,10 @@ export default {
   components: {
     CompanyCard,
     RevenueChart,
-    RevenueBreakdown
+    RevenueBreakdown,
+    NetIncomeChart,
+    GrossMarginChart,
+    RevenueGrowthChart
   },
   async created() {
     this.data = await stockService.getRevenue('$AAPL');
@@ -66,8 +81,21 @@ body {
   margin-bottom: 20px;
 }
 
-.revenue_chart{
+.revenue_chart {
   display: flex;
   gap: 20px;
+  margin-bottom: 20px;
+}
+
+.tables {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.subtables {
+  display: flex;
+  gap: 20px;
+  width: 100%;
 }
 </style>
