@@ -2,71 +2,46 @@
 
   <h1>The Magnificent Seven Companies</h1>
   <div class="company-cards">
-      <CompanyCard
-        name="Apple"
-        logo="apple.png"
-        :revenue="38.52"
-        :growth="2.8"
-      />
-      <CompanyCard
-        name="Meta"
-        logo="meta.png"
-        :revenue="435.57"
-        :growth="-1.32"
-      />
-      <CompanyCard
-        name="Microsoft"
-        logo="microsoft.png"
-        :revenue="435.57"
-        :growth="-1.32"
-      />
-      <CompanyCard
-        name="Google"
-        logo="google.png"
-        :revenue="435.57"
-        :growth="-1.32"
-      />
-      <CompanyCard
-        name="Amazon"
-        logo="amazon.png"
-        :revenue="435.57"
-        :growth="-1.32"
-      />
-      <CompanyCard
-        name="Tesla"
-        logo="tesla.png"
-        :revenue="435.57"
-        :growth="-1.32"
-      />
-    </div>
-    <BaseCard>
-      <h3>Revenue last 3 years</h3>
-      <p>Dies ist der Inhalt der ersten Card.</p>
-    </BaseCard>
+    <CompanyCard name="Apple" logo="apple.png" :revenue="38.52" :growth="2.8" />
+    <CompanyCard name="Meta" logo="meta.png" :revenue="435.57" :growth="-1.32" />
+    <CompanyCard name="Microsoft" logo="microsoft.png" :revenue="435.57" :growth="-1.32" />
+    <CompanyCard name="Google" logo="google.png" :revenue="435.57" :growth="-1.32" />
+    <CompanyCard name="Amazon" logo="amazon.png" :revenue="435.57" :growth="-1.32" />
+    <CompanyCard name="Tesla" logo="tesla.png" :revenue="435.57" :growth="-1.32" />
+
+    <CompanyCard name="Nvidia" logo="tesla.png" :revenue="435.57" :growth="-1.32" />
+  </div>
+  <div class="revenue_chart">
+    <RevenueChart></RevenueChart>
+    <RevenueBreakdown></RevenueBreakdown>
+  </div>
 </template>
 
 <script>
-import BaseCard from './components/BaseCard.vue';
-import {stockService} from '@/services/stockService.js';
+import { stockService } from '@/services/stockService.js';
 import CompanyCard from '@/components/CompanyCard.vue';
+import RevenueChart from '@/components/RevenueChart.vue';
+import RevenueBreakdown from '@/components/RevenueBreakdown.vue';
+
 
 export default {
-  
+
   name: 'App',
   components: {
-    BaseCard,
     CompanyCard,
-  }, 
-  async created(){
+    RevenueChart,
+    RevenueBreakdown
+  },
+  async created() {
     this.data = await stockService.getRevenue('$AAPL');
     console.log('loaded data', this.data);
-    
+
   }
 }
 </script>
 
 <style>
-body{
+body {
   margin: 0;
   color: #fff;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -81,7 +56,17 @@ body{
   min-height: 100vh;
 }
 
-.company-cards{
+.company-cards {
+  display: flex;
+  gap: 20px;
+  background: #023A6233;
+  padding: 20px;
+  border-radius: 20px;
+  overflow-x: hidden;
+  margin-bottom: 20px;
+}
+
+.revenue_chart{
   display: flex;
   gap: 20px;
 }

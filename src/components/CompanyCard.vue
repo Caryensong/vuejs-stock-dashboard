@@ -5,7 +5,7 @@
                 <img :src="logoUrl" alt="Company Logo" />
                 <h3>{{ name }}</h3>
             </div>
-            <p>Revenue Q1 2024</p>
+            <p class="revenue_text">Revenue Q1 2024</p>
             <p>{{ revenue }} Mrd USD</p>
             <p :class="{ 'positive': growth > 0, 'negative': growth < 0 }">
                 {{ growth > 0 ? '+' : '' }}{{ growth }}%
@@ -48,7 +48,7 @@ export default {
 .company-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 140px;
 }
 
 .logoheadline{
@@ -69,5 +69,9 @@ img {
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+.revenue_text{
+    font-size: 14px;
 }
 </style>

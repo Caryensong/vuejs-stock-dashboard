@@ -1,7 +1,7 @@
 <template>
     <BaseCard>
         <div class="company-card">
-            <h3>Revenue last 3 years</h3>
+            <h3>Revenue Breakdown Magnificent Seven</h3>
       <p>Dies ist der Inhalt der ersten Card.</p>
         </div>
     </BaseCard>
@@ -11,7 +11,7 @@
 import BaseCard from './BaseCard.vue';
 
 export default {
-    name: 'RevenueChart',
+    name: 'RevenueBreakdown',
     components: { BaseCard },
     props: {
         name: String,
