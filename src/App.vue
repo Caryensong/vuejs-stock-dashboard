@@ -1,6 +1,8 @@
 <template>
+
+  <h1>The Magnificent Seven Companies</h1>
     <BaseCard>
-      <h2>Erste Karte</h2>
+      <h3>Revenue last 3 years</h3>
       <p>Dies ist der Inhalt der ersten Card.</p>
     </BaseCard>
 </template>
@@ -16,7 +18,7 @@ export default {
     BaseCard
   }, 
   async created(){
-    this.data = await stockService.fetchData('$AAPL');
+    this.data = await stockService.getRevenue('$AAPL');
     console.log('loaded data', this.data);
     
   }
@@ -26,7 +28,10 @@ export default {
 <style>
 body{
   margin: 0;
+  color: #fff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 
 #app {
   background: radial-gradient(71.11% 100% at 50% 0%, #020204 14.6%, #011F35 100%);
