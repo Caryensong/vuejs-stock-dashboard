@@ -16,25 +16,25 @@
       />
       <CompanyCard
         name="Microsoft"
-        logo="meta.png"
+        logo="microsoft.png"
         :revenue="435.57"
         :growth="-1.32"
       />
       <CompanyCard
         name="Google"
-        logo="meta.png"
+        logo="google.png"
         :revenue="435.57"
         :growth="-1.32"
       />
       <CompanyCard
         name="Amazon"
-        logo="meta.png"
+        logo="amazon.png"
         :revenue="435.57"
         :growth="-1.32"
       />
       <CompanyCard
         name="Tesla"
-        logo="meta.png"
+        logo="tesla.png"
         :revenue="435.57"
         :growth="-1.32"
       />
